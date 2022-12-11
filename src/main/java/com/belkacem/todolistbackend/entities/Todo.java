@@ -31,5 +31,5 @@ public class Todo implements Serializable{
 	private String relatedState;
 
 	@Column(name = "IS_DONE")
-	private boolean isDone;
+	private boolean done;
 }

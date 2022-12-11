@@ -8,4 +8,6 @@ public interface TodoService {
 
 	List<Todo> getAllTodos();
 
+	Todo saveTodo(Todo todo);
+
 }

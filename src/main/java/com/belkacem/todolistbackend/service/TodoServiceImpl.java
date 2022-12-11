@@ -17,7 +17,12 @@ public class TodoServiceImpl implements TodoService {
 	
 	@Override
 	public List<Todo> getAllTodos() {
-		return todoRepository.findAll();
+		return todoRepository.findByOrderByDoneAsc();
+	}
+
+	@Override
+	public Todo saveTodo(Todo todo) {
+		return todoRepository.save(todo);		
 	}
 
 }

@@ -19,4 +19,8 @@ public class TodoBusinessLogic {
 		return todoService.getAllTodos();
 	}
 
+	public Todo saveTodo(Todo todo) {
+		return todoService.saveTodo(todo);		
+	}
+
 }
