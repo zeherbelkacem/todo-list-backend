@@ -29,4 +29,7 @@ public class Todo implements Serializable{
 	
 	@Column(name = "RELATED_STATE")
 	private String relatedState;
+
+	@Column(name = "IS_DONE")
+	private boolean isDone;
 }

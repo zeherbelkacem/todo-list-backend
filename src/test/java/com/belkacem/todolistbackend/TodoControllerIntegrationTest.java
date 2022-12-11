@@ -22,7 +22,8 @@ class TodoControllerIntegrationTest {
 		void shouldReturnListOTodos() throws Exception {
 			 mockMvc.perform(get("/todo/v1/todos"))
 	            .andExpect(status().isOk())
-	            .andExpect(jsonPath("$[0].title", is("meeting-1")));
+	            .andExpect(jsonPath("$[0].title", is("meeting-1")))
+	            .andExpect(jsonPath("$[0].done", is(false)));
 		}
 
 }
