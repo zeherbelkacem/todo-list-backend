@@ -32,5 +32,10 @@ public class TodoController {
 	public Todo saveTodo(@RequestBody Todo todo) {
 		return todoBusinessLogic.saveTodo(todo);
 	}
+	
+	@GetMapping("/{id}")
+	public Todo getOneTodo(@PathVariable("id") long id) {
+		return todoBusinessLogic.getOneTodo(id);
+	}
 
 }

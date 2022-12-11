@@ -10,4 +10,6 @@ public interface TodoService {
 
 	Todo saveTodo(Todo todo);
 
+	Todo getOneTodo(long id);
+
 }

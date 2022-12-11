@@ -32,4 +32,7 @@ public class Todo implements Serializable{
 
 	@Column(name = "IS_DONE")
 	private boolean done;
+	 
+	@Column(name = "DESCRIPTION")
+	private String description;
 }

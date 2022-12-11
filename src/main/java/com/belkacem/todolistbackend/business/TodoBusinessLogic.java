@@ -23,4 +23,8 @@ public class TodoBusinessLogic {
 		return todoService.saveTodo(todo);		
 	}
 
+	public Todo getOneTodo(long id) {
+		return todoService.getOneTodo(id);
+	}
+
 }
