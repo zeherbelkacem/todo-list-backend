@@ -11,5 +11,7 @@ import com.belkacem.todolistbackend.entities.Todo;
 public interface TodoRepository extends JpaRepository<Todo, Long> {
 
 	public List<Todo> findByOrderByDoneAsc();
+
+	public Todo findByTitle(String title);
 	
 }

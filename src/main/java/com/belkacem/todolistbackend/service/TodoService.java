@@ -12,4 +12,6 @@ public interface TodoService {
 
 	Todo getOneTodo(long id);
 
+	Todo findByTitle(String title);
+
 }
