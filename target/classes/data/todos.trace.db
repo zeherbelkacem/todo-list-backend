@@ -1,0 +1,7 @@
+2022-12-14 13:20:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DATABASECHANGELOGLOCK" not found (this database is empty); SQL statement:
+SELECT COUNT(*) FROM PUBLIC.DATABASECHANGELOGLOCK [42104-214]
+2022-12-14 13:22:31 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TODOS" non trouvée
+Table "TODOS" not found; SQL statement:
+select* from todos [42102-214]

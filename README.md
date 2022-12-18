@@ -1,3 +1,22 @@
+# Implementation solution: back => JAVA/(MySQL/H2), front => Angular
+
+## How to launch the applicaticon
+
+### Back: https://github.com/zeherbelkacem/todo-list-backend.git
+=> Run the jar todo-list-0.0.1-SNAPSHOT in todo-list-app\todo-list-backend\target
+OR
+=> Clone the projet and run it as SpringBootApplication
+
+###  DB
+=> Use H2 at http://localhost:8086/h2-console/, url: jdbc:h2:mem:tododb, password not needed
+=> Insert items (not necessary) using https://github.com/zeherbelkacem/todo-list-backend/blob/main/src/main/resources/data/todos.sql
+
+###  Front: https://github.com/zeherbelkacem/todo-list-frontend.git
+=> Clone the project 
+=> npm install
+=> ng serve and open in: http://localhost:4200/todo
+=> There is a github deploy but not always working 
+
 
 # Context
 Our fantastic product owner has a wonderful, amazing and revolutionary idea... he wants to build a new Todo application. 

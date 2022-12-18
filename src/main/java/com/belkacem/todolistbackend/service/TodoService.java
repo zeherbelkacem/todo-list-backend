@@ -14,4 +14,10 @@ public interface TodoService {
 
 	Todo findByTitle(String title);
 
+	void deleteTodo(long id);
+
+	List<Todo> getDoneTODOs();
+	
+	List<Todo> getTodoTODOs();
+
 }

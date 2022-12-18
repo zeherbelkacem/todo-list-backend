@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.belkacem.todolistbackend.TodoListBackendApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.711 s <<< FAILURE! - in com.belkacem.todolistbackend.TodoListBackendApplicationTests
+GetAllTodosTest  Time elapsed: 0.242 s  <<< ERROR!
+java.util.NoSuchElementException
+	at com.belkacem.todolistbackend.TodoListBackendApplicationTests.GetAllTodosTest(TodoListBackendApplicationTests.java:19)
+

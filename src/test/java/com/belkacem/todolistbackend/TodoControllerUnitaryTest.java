@@ -24,7 +24,7 @@ class TodoControllerUnitaryTest {
 	
 	@Test
     void testGetEmployees() throws Exception {
-        mockMvc.perform(get("/todo/v1/todos"))
+        mockMvc.perform(get("/api/todo/v1/todos"))
             .andExpect(status().isOk());
     }
 

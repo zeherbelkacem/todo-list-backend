@@ -1,10 +1,6 @@
 package com.belkacem.todolistbackend.business;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
@@ -12,7 +8,6 @@ import com.belkacem.todolistbackend.entities.Todo;
 import com.belkacem.todolistbackend.exceptions.EntityAlreadyExistsException;
 import com.belkacem.todolistbackend.service.TodoService;
 
-import liquibase.pro.packaged.iF;
 import lombok.RequiredArgsConstructor;
 
 @Component
@@ -22,19 +17,7 @@ public class TodoBusinessLogic {
 	private final TodoService todoService;
 
 	public List<Todo> getAllTodos() {
-		List<Integer> ids = new ArrayList<>();
-		Map<Integer, Integer> map = new HashMap<>();
-		List<Todo> todos = todoService.getAllTodos();
-		todos.forEach(t -> {
-			if (t.getRelatedState().equals("TODO")) {
-				map.put((int) t.getId(), todos.indexOf(t));
-				ids.add((int) t.getId());
-			}
-
-		});
-		Collections.swap(todos, 0, map.get(Collections.max(ids)));
-
-		return todos;
+		return todoService.getAllTodos();
 	}
 
 	public Todo saveTodo(Todo todo) {
@@ -48,6 +31,30 @@ public class TodoBusinessLogic {
 
 	public Todo getOneTodo(long id) {
 		return todoService.getOneTodo(id);
+	}
+
+	public void update(Todo todo) {
+		if (!todo.isDone()) {
+			todo.setDone(true);
+			todo.setRelatedState("DONE");
+			todoService.saveTodo(todo);
+		}else {
+			todo.setDone(false);
+			todo.setRelatedState("TODO");
+			todoService.saveTodo(todo);
+		}
+	}
+
+	public void deleteTodo(long id) {
+		todoService.deleteTodo(id);
+	}
+
+	public List<Todo> getDoneTODOs() {
+		return todoService.getDoneTODOs();
+	}
+	
+	public List<Todo> getTodoTODOs() {
+		return todoService.getTodoTODOs();
 	}
 
 }

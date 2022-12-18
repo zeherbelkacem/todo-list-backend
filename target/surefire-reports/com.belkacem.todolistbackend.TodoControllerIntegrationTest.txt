@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+Test set: com.belkacem.todolistbackend.TodoControllerIntegrationTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 12.221 s <<< FAILURE! - in com.belkacem.todolistbackend.TodoControllerIntegrationTest
+shouldReturnListOTodos  Time elapsed: 0.648 s  <<< FAILURE!
+java.lang.AssertionError: No value at JSON path "$[0].title"
+	at com.belkacem.todolistbackend.TodoControllerIntegrationTest.shouldReturnListOTodos(TodoControllerIntegrationTest.java:25)
+Caused by: com.jayway.jsonpath.PathNotFoundException: No results for path: $[0]['title']
+
