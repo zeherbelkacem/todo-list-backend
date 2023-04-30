@@ -1,5 +1,6 @@
 package com.belkacem.agentsservice.mapper;
 
+import com.belkacem.agentsservice.dto.AgentDTO;
 import com.belkacem.agentsservice.dto.AgentRequestDTO;
 import com.belkacem.agentsservice.dto.AgentResponseDTO;
 import com.belkacem.agentsservice.entities.Agent;
@@ -10,4 +11,5 @@ public interface AgentMapper {
 	
 	AgentResponseDTO agentToAgentResponseDTO(Agent agent);
 	Agent agentRequestDTOToAgent(AgentRequestDTO agentRequestDTO);
+	Agent agentDTOToAgent(AgentDTO agentDTO);
 }

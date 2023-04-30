@@ -1,15 +1,18 @@
 package com.belkacem.agentsservice.service;
 
+import com.belkacem.agentsservice.dto.AgentDTO;
 import com.belkacem.agentsservice.dto.AgentRequestDTO;
 import com.belkacem.agentsservice.dto.AgentResponseDTO;
 import com.belkacem.agentsservice.entities.Agent;
 import com.belkacem.agentsservice.entities.StatusEnum;
 import com.belkacem.agentsservice.exceptions.AgentAlreadyExistsException;
+import com.belkacem.agentsservice.exceptions.ResourceNotFoundException;
 import com.belkacem.agentsservice.mapper.AgentMapper;
 import com.belkacem.agentsservice.repository.AgentRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -52,6 +55,25 @@ public class AgentServiceImp implements AgentService{
         agents.forEach(agent -> {
             agentResponseDTOS.add(agentMapper.agentToAgentResponseDTO(agent));
         });
+        log.info("Service: Retrieve All Agents");
         return agentResponseDTOS;
+    }
+
+    @Override
+    public Agent updateAgent(AgentDTO agentDTO, String name) {
+        log.info("Service: Update Agent {} ", agentDTO);
+        Agent agent = new Agent();
+
+        Agent agentByName = agentRepository.findByName(agentDTO.getName());
+
+        if (agentByName != null) {
+            agent = agentMapper.agentDTOToAgent(agentDTO);
+        }
+        else {
+            log.info("Service: Resource Agent not found using name {} ", agentByName);
+            throw new ResourceNotFoundException(HttpStatus.NOT_FOUND ,"No Such Agent exists!!");
+        }
+
+        return agentRepository.save(agent);
     }
 }
