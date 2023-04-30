@@ -1,6 +1,7 @@
 package com.belkacem.agentsservice.service;
 
 import com.belkacem.agentsservice.dto.AgentRequestDTO;
+import com.belkacem.agentsservice.dto.AgentResponseDTO;
 import com.belkacem.agentsservice.entities.Agent;
 import com.belkacem.agentsservice.entities.StatusEnum;
 import com.belkacem.agentsservice.exceptions.AgentAlreadyExistsException;
@@ -11,7 +12,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -40,5 +43,15 @@ public class AgentServiceImp implements AgentService{
         }
 
         return agentRepository.save(agent);
+    }
+
+    @Override
+    public List<AgentResponseDTO> getAllAgents() {
+        List<Agent> agents = agentRepository.findAll();
+        List<AgentResponseDTO> agentResponseDTOS = new ArrayList<>();
+        agents.forEach(agent -> {
+            agentResponseDTOS.add(agentMapper.agentToAgentResponseDTO(agent));
+        });
+        return agentResponseDTOS;
     }
 }

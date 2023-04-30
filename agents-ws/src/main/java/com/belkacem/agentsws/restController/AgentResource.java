@@ -1,6 +1,7 @@
 package com.belkacem.agentsws.restController;
 
 import com.belkacem.agentsservice.dto.AgentRequestDTO;
+import com.belkacem.agentsservice.dto.AgentResponseDTO;
 import com.belkacem.agentsservice.entities.Agent;
 import com.belkacem.agentsservice.exceptions.AgentAlreadyExistsException;
 import com.belkacem.agentsservice.service.AgentService;
@@ -10,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -24,5 +27,10 @@ public class AgentResource {
     public ResponseEntity<Agent> addAgent(@RequestBody AgentRequestDTO agentRequestDTO) {
         log.info("Resource: Save Agent {} ", agentRequestDTO);
         return new ResponseEntity<>(agentServiceImpl.addAgent(agentRequestDTO), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/agents")
+    public ResponseEntity<List<AgentResponseDTO>> getAllAgents(){
+        return new ResponseEntity<>(agentServiceImpl.getAllAgents(), HttpStatus.OK);
     }
 }
