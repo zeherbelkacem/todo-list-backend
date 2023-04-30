@@ -30,13 +30,19 @@ public class AgentResource {
 
     @GetMapping("/agents")
     public ResponseEntity<List<AgentResponseDTO>> getAllAgents(){
-        log.info("Service: Retrieve All Agents");
+        log.info("Resource: Retrieve All Agents");
         return new ResponseEntity<>(agentServiceImpl.getAllAgents(), HttpStatus.OK);
     }
 
     @PutMapping("/{name}")
     public ResponseEntity<Agent> updateAgent(@RequestBody AgentDTO agentDTO, @PathVariable String name){
-        log.info("Service: Update Agent {}", agentDTO);
+        log.info("Resource: Update Agent {}", agentDTO);
         return new ResponseEntity<>(agentServiceImpl.updateAgent(agentDTO, name), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public HttpStatus deleteAgent(@PathVariable("id") Long id) {
+        log.info("Resource: delete agent with resourceId {}", id);
+        return agentServiceImpl.deleteAgent(id);
     }
 }

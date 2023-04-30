@@ -76,4 +76,15 @@ public class AgentServiceImp implements AgentService{
 
         return agentRepository.save(agent);
     }
+
+    @Override
+    public HttpStatus deleteAgent(Long id) {
+        log.info("Service: delete agent with resourceId {}", id);
+        try {
+            agentRepository.deleteById(id);
+            return HttpStatus.NO_CONTENT;
+        } catch (Exception e) {
+            return HttpStatus.INTERNAL_SERVER_ERROR;
+        }
+    }
 }
