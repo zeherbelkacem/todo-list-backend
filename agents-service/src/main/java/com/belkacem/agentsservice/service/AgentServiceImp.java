@@ -30,7 +30,7 @@ public class AgentServiceImp implements AgentService{
     @Override
     public Agent addAgent(AgentRequestDTO agentRequestDTO) {
         log.info("Service: Save Agent {} ", agentRequestDTO);
-        Agent agent = new Agent();
+        Agent agent;
 
         Agent agentByName = agentRepository.findByName(agentRequestDTO.getName());
 
@@ -62,9 +62,9 @@ public class AgentServiceImp implements AgentService{
     @Override
     public Agent updateAgent(AgentDTO agentDTO, String name) {
         log.info("Service: Update Agent {} ", agentDTO);
-        Agent agent = new Agent();
+        Agent agent;
 
-        Agent agentByName = agentRepository.findByName(agentDTO.getName());
+        Agent agentByName = agentRepository.findByName(name);
 
         if (agentByName != null) {
             agent = agentMapper.agentDTOToAgent(agentDTO);
