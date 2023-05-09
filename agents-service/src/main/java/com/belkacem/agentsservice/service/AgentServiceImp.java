@@ -4,14 +4,12 @@ import com.belkacem.agentsservice.dto.AgentDTO;
 import com.belkacem.agentsservice.dto.AgentRequestDTO;
 import com.belkacem.agentsservice.dto.AgentResponseDTO;
 import com.belkacem.agentsservice.entities.Agent;
-import com.belkacem.agentsservice.entities.StatusEnum;
 import com.belkacem.agentsservice.exceptions.AgentAlreadyExistsException;
 import com.belkacem.agentsservice.exceptions.ResourceNotFoundException;
 import com.belkacem.agentsservice.mapper.AgentMapper;
 import com.belkacem.agentsservice.repository.AgentRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -38,7 +36,7 @@ public class AgentServiceImp implements AgentService{
             agent = agentMapper.agentRequestDTOToAgent(agentRequestDTO);
             agent.setDateAdd(new Date());
             agent.setLastKeepAlive(null);
-            agent.setStatus(StatusEnum.never_connected);
+            agent.setStatus("never_connected");
         }
         else {
             log.info("Service: Agent with the same name already exists {} ", agentByName);

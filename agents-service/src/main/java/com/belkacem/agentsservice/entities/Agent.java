@@ -39,6 +39,6 @@ public class Agent implements Serializable {
     private String version;
 
     @Column(name = "STATUS")
-    private StatusEnum status;
+    private String status;
 
 }

@@ -1,6 +1,5 @@
 package com.belkacem.agentsservice.dto;
 
-import com.belkacem.agentsservice.entities.StatusEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,6 +20,6 @@ public class AgentResponseDTO {
 	private String ip;
 	private String name;
 	private String version;
-	private StatusEnum status;
+	private String status;
 
 }
